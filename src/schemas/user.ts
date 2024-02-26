@@ -11,8 +11,8 @@ export class User {
   @Prop({ required: true })
   teamName: string;
 
-  @Prop({ required: true, enum: ["online", "offline", "error"] }) 
-  status: "online" | "offline" | "error";
+  @Prop({ required: true, enum: ['online', 'offline', 'error'] })
+  status: 'online' | 'offline' | 'error';
 
   @Prop({ required: true })
   statusText: string;
