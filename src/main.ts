@@ -7,15 +7,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('Users')
     .setDescription('The users API asyncdev')
     .setVersion('1.0')
     .addTag('users')
+    .addTag("Auth")
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('documentacion', app, document);
+  SwaggerModule.setup('docs', app, document);
 
-  await app.listen(3000);
   app.use(cors()); // Enable CORS with default settings
   await app.listen(process.env.PORT || 3000);
 }
